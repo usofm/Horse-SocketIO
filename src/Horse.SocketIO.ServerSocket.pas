@@ -64,7 +64,7 @@ end;
 
 function TSocketServer.Send(aClient, aPath, aMessage: String): String;
 begin
-  Result := FGenericSocket.SocketServer.Send(aClient, aPath).JSONValue.ToJSON;
+  Result := FGenericSocket.SocketServer.Send(aClient, aPath+'?'+aMessage).JSONValue.ToJSON;
 end;
 
 procedure TSocketServer.StartServer(aPort: Integer);

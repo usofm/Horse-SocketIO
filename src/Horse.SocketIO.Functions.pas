@@ -50,8 +50,7 @@ begin
 
         Res.Send<TJSONValue>(
           TJSONObject.ParseJSONValue(
-            TJSONObject.ParseJSONValue( LResponse )
-              .GetValue<TJSONValue>('message').Value
+            TJSONObject.ParseJSONValue( LResponse ).GetValue<TJSONValue>('message').Value
           )
         ).Status(THTTPStatus.OK);
       end
