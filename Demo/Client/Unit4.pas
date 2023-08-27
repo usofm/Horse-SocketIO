@@ -55,11 +55,13 @@ end;
 function TForm4.SocketProducts(aMessage: String): String;
 begin
   Memo1.Lines.Add('I received ' + aMessage + ' and replied.');
+
   var json:=TJSONObject.Create;
   try
      json.AddPair('ID',10001);
      json.AddPair('Name','Mercides Benz C200');
      json.AddPair('Price','30,000 USD');
+     json.AddPair('RequestMessage',TJSONValue.ParseJSONValue(aMessage));
 
      Result := json.ToJSON;
   finally
